@@ -12,7 +12,7 @@ public class SongLoader : MonoBehaviour
     public float scaleMultiplier = 1.3f;
     public List<GameObject> stageObjs = new List<GameObject>();
 
-    public float stageOffset = 10;
+    public Vector2 stageOffset = new Vector2(10, 0);
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class SongLoader : MonoBehaviour
             SpriteRenderer renderer = obj.AddComponent<SpriteRenderer>();
             renderer.sortingOrder = sprite.zIndex;
             renderer.sprite = Sprite.Create(tex, new Rect(new Vector2(0, 0), new Vector2(tex.width, tex.height)), Vector2.zero);
-            obj.transform.position = new Vector3((sprite.position[0] / positionDivider) + stageOffset, Camera.main.gameObject.transform.position.y - (sprite.position[1] / positionDivider));
+            obj.transform.position = new Vector3((sprite.position[0] / positionDivider) + stageOffset.x, Camera.main.gameObject.transform.position.y - (sprite.position[1] / positionDivider) + stageOffset.y, sprite.scroll[0] + sprite.scroll[1]);
             obj.transform.localScale = new Vector3(sprite.scale[0], sprite.scale[1]) * scaleMultiplier;
             stageObjs.Add(obj);
             //Instantiate(obj);

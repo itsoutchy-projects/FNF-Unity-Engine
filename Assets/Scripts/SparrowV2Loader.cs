@@ -6,15 +6,14 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class SparrowV2Loader
 {
     /// <summary>
     /// Gets a list of <see cref="SparrowAnimation[]"/> from <paramref name="atlas"/> and <paramref name="xml"/>
     /// </summary>
-    /// <param name="atlas"></param>
-    /// <param name="xml"></param>
+    /// <param name="atlas">The spritesheet to deserialize</param>
+    /// <param name="xml">The xml, this assumes you already have the xml loaded into a string</param>
     /// <returns>A list of <see cref="SparrowAnimation"/>s</returns>
     public SparrowAnimation[] SparrowDeserialize(Texture2D atlas, string xml)
     {
